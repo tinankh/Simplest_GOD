@@ -1,5 +1,5 @@
 SGOD - Simplest JPEG Grid Origin Detector
-===========================
+=========================================
 
 Version 1 - March 8th, 2019
 by Tina Nikoukhah <tina.nikoukhah@gmail.com>
@@ -14,11 +14,11 @@ SGOD is the simplest JPEG grid origin detector.
 
 
 Requirements
----------
+------------
 
 
 Running SGOD Command
--------------------
+--------------------
 python simplest_god.py <image>
 
 You can remove the output of the algorithm created in outdir_temp_<image> by running
