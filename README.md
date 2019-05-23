@@ -1,7 +1,12 @@
 SGOD - Simplest JPEG Grid Origin Detector
 =========================================
 
-Version 1 - March 8th, 2019
+JPEG Grid Origin Detection by Simulated Compression
+
+================================================
+
+Version 1 - May 8th, 2019
+
 by Tina Nikoukhah <tina.nikoukhah@gmail.com>
 
 joint work with Rafael Grompone von Gioi, Miguel Colom and Jean-Michel Morel
@@ -10,11 +15,17 @@ joint work with Rafael Grompone von Gioi, Miguel Colom and Jean-Michel Morel
 Introduction
 ------------
 
-SGOD is the simplest JPEG grid origin detector.
+SGOD is an implementation of the Simplest JPEG Grid Origin Detector described in the paper:
+
+     "Détection de grille JPEG par compression simulée" by Tina
+     Nikoukhah, Miguel Colom, Jean-Michel Morel and Rafael Grompone
+     von Gioi.
 
 
-Requirements
+Online Demo
 ------------
+
+[IPOL](https://ipolcore.ipol.im/demo/clientApp/demo.html?id=77777000051)
 
 
 Running SGOD Command
@@ -41,7 +52,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
-along with this program. If not, see <http://www.gnu.org/licenses/>.
+along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 Thanks
