@@ -31,12 +31,11 @@ def get_jpeg_size(img, x, y):
     crop_image.save(buffer, format='JPEG', quality=100)
     return len(buffer.getvalue())
 
-def detect_jpeg_grid(img, *, fast=False):
+def detect_jpeg_grid(img, *, kappa=7, fast=False):
     img = img.convert('YCbCr').split()[0]
     get_size = lambda i, j: get_jpeg_size(img, i, j)
 
     if not fast:
-        kappa = 7.0
         coords = [(i,j) for i in range(8) for j in range(8)]
         result = [get_size(i, j) for i, j in coords]
 
@@ -47,7 +46,6 @@ def detect_jpeg_grid(img, *, fast=False):
         mini = sorted_result[0]
 
     else:
-        kappa = 7.0
         coords = [(i,i) for i in range(8)]
         result = [get_size(i, j) for i,j in coords]
 
@@ -63,21 +61,19 @@ def detect_jpeg_grid(img, *, fast=False):
             coords.append(i)
             result.append(get_size(*i))
 
-    if mini < (mean - kappa*std) :
-        xx, yy = coords[np.argmin(result)]
-        return xx,yy
-
-    else:
-        print("no grid found")
-        return -1,-1
+    if mini < mean - kappa * std:
+        return coords[np.argmin(result)]
+    return -1, -1
 
 if __name__ == '__main__':
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument("input_filename", help="path to the input image")
+    parser.add_argument("--kappa", type=float, default=7.)
     parser.add_argument("--fast", action='store_true')
     args = parser.parse_args()
 
     img = Image.open(args.input_filename)
-    x, y = detect_jpeg_grid(img, fast=args.fast)
+    x, y = detect_jpeg_grid(img, kappa=args.kappa, fast=args.fast)
     print(x, y)
+
